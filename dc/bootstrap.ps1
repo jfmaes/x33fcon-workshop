@@ -33,6 +33,7 @@ if ( $op -NotContains $Forest ) {
   Write-Host("Sleeping one minute before cmdlet")
   Install-WindowsFeature AD-Domain-Services
   Start-Sleep -s 60
+  add-WindowsFeature RSAT-ADDS-Tools
   Install-ADDSForest -DomainName $Forest -InstallDns -force -SafeModeAdministratorPassword $SecureAdminPassword
   Exit 3010
 }
